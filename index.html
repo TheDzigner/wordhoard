@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link 
+    rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,0,0" />
+  
+  <link 
+  href="https://fonts.googleapis.com/css2?family=Varela+Round&display=swap" rel="stylesheet">
+  
+  <link 
+  rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+
+<script src="https://www.gstatic.com/firebasejs/8.8.0/firebase-app.js"></script>
+<script src="https://www.gstatic.com/firebasejs/8.8.0/firebase-auth.js"></script>
+<script src="https://www.gstatic.com/firebasejs/8.8.0/firebase-database.js"></script>
+  <link type="text/css" rel="stylesheet" href="https://www.gstatic.com/firebasejs/ui/4.8.1/firebase-ui-auth.css" />
+  
+  <script src="https://www.gstatic.com/firebasejs/ui/4.8.1/firebase-ui-auth.js"></script>
+  <link type="text/css" rel="stylesheet" href="https://www.gstatic.com/firebasejs/ui/4.8.1/firebase-ui-auth.css" />
+  <link rel="stylesheet" href="style.css">
+<script src="/main.js" defer ></script>
+<script src="/index.js" defer ></script>
+<script src="/anim.js" defer></script>
+
+    <title> WordHoard</title>
+</head>
+<body>
+    
+
+<header>
+    <h1>
+    WordHoard
+    </h1>
+     <input type="text" placeholder="Search for words" class="search-words-input">
+    <div class="mobile-buttons">
+        <button class="material-symbols-outlined open-search-mobile"> 
+            search
+        </button>
+         <button class="material-symbols-outlined open-menu-mobile" data-filter="saved"> 
+            widgets
+        </button>
+    </div>
+</header>
+
+<aside class="menu">
+  
+    <nav>
+        <ul>
+        <li>
+        <button class="material-symbols-outlined active" data-filter="saved"> 
+            save
+        </button>
+          <span>
+             saved
+          </span>
+           
+        </li>
+        <li>
+            <button class="material-symbols-outlined" data-filter="new">
+                add
+            </button>
+            <span>new</span>
+        </li>
+        <li>
+            <button class="material-symbols-outlined" data-filter="notes">
+                note
+            </button>
+            <span>my notes</span>
+        </li>
+        <li>
+            <button class="material-symbols-outlined" data-filter="restore">
+             restore_from_trash
+            </button>
+            <span>restore from trash</span>
+        </li>
+        <li>
+            <button class="material-symbols-outlined" data-filter="logout">
+             logout
+            </button>
+            <span>logout</span>
+        </li>
+        <li>
+            <button class="material-symbols-outlined" data-filter="share">
+             share
+            </button>
+            <span>share with friends</span>
+        </li>
+        <li>
+            <button class="material-symbols-outlined" data-filter="flag">
+            flag
+            </button>
+            <span>report a problem</span>
+        </li>
+    </ul>
+    </nav>
+</aside>
+
+
+
+
+
+<section data-filter="saved">
+    <aside class="container-right" >
+        <div class="cards-wrapper">
+        
+            <div class="card">
+                <div class="word-detail">
+                <h4>elephant elephant elephant</h4>
+                 <h5>#animals #animals</h5>
+                </div>
+                <div class="word">
+                   Lorem, ipsum dolor sit amet consectetur adipisicing elit. Eveniet, quis.
+                </div>
+                <div class="example-word">
+                    <p>
+                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Ex, perferendis!
+                    </p>
+                </div>
+                <div class="action-btns">
+                    <button class="material-symbols-outlined">edit</button>
+                    <button class="material-symbols-outlined">check</button>
+                    <button class="material-symbols-outlined">share</button>
+                    <button class="material-symbols-outlined">remove</button>
+                </div>
+                <div class="date">
+                    <span>jun 28,2023 at 05:10</span>
+                </div>
+            </div>
+            
+            <div class="card">
+                <div class="word-detail">
+                <h4>elephant elephant elephant</h4>
+                 <h5>#animals #animals</h5>
+                </div>
+                <div class="word">
+                   Lorem, ipsum dolor sit amet consectetur adipisicing elit. Eveniet, quis.
+                </div>
+                <div class="example-word">
+                    <p>
+                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Ex, perferendis!
+                    </p>
+                </div>
+                <div class="action-btns">
+                    <button class="material-symbols-outlined">edit</button>
+                    <button class="material-symbols-outlined">check</button>
+                    <button class="material-symbols-outlined">share</button>
+                    <button class="material-symbols-outlined">remove</button>
+                </div>
+                <div class="date">
+                    <span>jun 28,2023 at 05:10</span>
+                </div>
+            </div>
+
+            <div class="card">
+                <div class="word-detail">
+                <h4>elephant elephant elephant</h4>
+                 <h5>#animals #animals</h5>
+                </div>
+                <div class="word">
+                   Lorem, ipsum dolor sit amet consectetur adipisicing elit. Eveniet, quis.
+                </div>
+                <div class="example-word">
+                    <p>
+                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Ex, perferendis!
+                    </p>
+                </div>
+                <div class="action-btns">
+                    <button class="material-symbols-outlined">edit</button>
+                    <button class="material-symbols-outlined">check</button>
+                    <button class="material-symbols-outlined">share</button>
+                    <button class="material-symbols-outlined">remove</button>
+                </div>
+                <div class="date">
+                    <span>jun 28,2023 at 05:10</span>
+                </div>
+            </div>
+
+         
+        </div>
+        </aside>
+        
+</section>
+
+
+
+
+
+
+
+
+
+
+<section data-filter="new" class="my-form">
+    <form action="" id="saveWords">
+        <h4>
+      add new word
+        </h4>
+        <label for="word">
+            <span>
+            word
+            </span>
+            <input type="text" placeholder="enter word" id="word" required autocomplete="false"> 
+        </label>
+        <label for="tag">
+            <span>
+            tag
+            </span>
+            <input type="text" placeholder="enter tag" id="word" autocomplete="false"> 
+        </label>
+        <label for="meanings">
+            <span>
+              meanings
+            </span>
+
+            <textarea type="text" placeholder="enter tag" id="meanings"placeholder="enter meanings" required autocomplete="false"> 
+            </textarea>
+        </label>
+        <button type="submit">save</button>
+    </form>
+</section>
+
+
+</body>
+</html>
