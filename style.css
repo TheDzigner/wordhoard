@@ -354,7 +354,7 @@ header input.active
    text-align: right;
    padding-left: 5px;
 }
-.cards-wrapper .card .word 
+.cards-wrapper .card .meanings 
 {
     width: 100%;
     word-wrap: nowrap;

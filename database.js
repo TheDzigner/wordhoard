@@ -16,8 +16,7 @@ const firebaseConfig = {
 
 const saveWordsForm = document.querySelector("#saveWords")
 const cards_wrapper = document.querySelector(".cards-wrapper")
-
-
+let showedCards  = ''
 saveWordsForm.addEventListener("submit",function(e){
     e.preventDefault()
     const wordInput = saveWordsForm.querySelector('#word').value
@@ -31,50 +30,164 @@ saveWordsForm.addEventListener("submit",function(e){
         tag : tagInput,
         example : ExampleInput,
         meanings : meaningsInput
+    }).then(()=>{
+        alert("saved succesfully")
+    }).catch((error)=>{
+        alert("failed to save card",error.message)
     })
-    displayWords()
+
+    displayCards()
     })
 
 
-    function displayWords()
+    function displayCards()
     {
         let html = ''
         const retrieveData = database.ref("words")
-        retrieveData.once("value",(snapshot)=>{
+        retrieveData.once("child_added",(snapshot)=>{
             const data = snapshot.val()
+            const key = snapshot.key
+            const word = data.word 
+            const tag = data.tag
+            const example = data.example 
+            const meanings = data.meanings
 
-           for (const cardList in data) {
-        //    console.log(data[cardList])
            let card = `
            <div class="card">
+
            <div class="word-detail">
-           <h4>${data[cardList].word}</h4>
-            <h5>${data[cardList].tag}</h5>
+           <h4 class="word">${word}</h4>
+            <h5 class="tag">${tag}</h5>
            </div>
-           <div class="word">
-           ${data[cardList].meanings}
+
+           <div class="meanings">
+             ${meanings}
            </div>
+
            <div class="example-word">
-               <p>
-               ${data[cardList].example}
+               <p class="example">
+               ${example}
                </p>
            </div>
-           <div class="action-btns">
-               <button class="material-symbols-outlined">edit</button>
-               <button class="material-symbols-outlined">check</button>
-               <button class="material-symbols-outlined">share</button>
-               <button class="material-symbols-outlined">remove</button>
+
+           <div class="action-btns"  contentEditable="false">
+               <button class="edit material-symbols-outlined" data-action="${key}">edit</button>
+               <button class="check material-symbols-outlined" data-action="${key}">check</button>
+               <button class="share material-symbols-outlined" data-action="${key}">share</button>
+               <button class="remove material-symbols-outlined" data-action="${key}">remove</button>
            </div>
            <div class="date">
-               <span>jun 28,2023 at 05:10</span>
+               <span  contentEditable="false">jun 28,2023 at 05:10</span>
            </div>
        </div>
            `
            html += card
-           }
       
            cards_wrapper.innerHTML = html
+
+           const cards = document.querySelectorAll(".card")
+      
+           cards.forEach((card)=>{
+               const editbtn = card.querySelector(".edit")
+               const checkbtn = card.querySelector(".check")
+               const sharebtn = card.querySelector(".share")
+               const removebtn = card.querySelector(".remove")
+
+            const word_detail = card.querySelector('.word-detail h4')
+            const word_tag = card.querySelector('.word-detail h5')
+            const meaningsContainer = card.querySelector('.meanings')
+            const exampleContainer = card.querySelector('.example-word')
+             
+   
+               checkbtn.style.display = "none"
+   
+               editbtn.addEventListener("click",function(e){
+                  const btnKey = e.target.dataset.action 
+ 
+            
+        word_detail.setAttribute("contentEditable",true)
+        word_detail.focus()
+        word_tag.setAttribute("contentEditable",true)
+        word_tag.focus()
+          meaningsContainer.setAttribute("contentEditable",true)
+          meaningsContainer.focus()
+          exampleContainer.setAttribute("contentEditable",true)
+          exampleContainer.focus()
+
+                checkbtn.style.display = "inline-block"
+                editbtn.style.display = "none"
+               })
+
+            checkbtn.addEventListener("click",function(e){
+            const btnKey = e.target.dataset.action 
+
+            word_detail.removeAttribute("contentEditable")
+            word_tag.removeAttribute("contentEditable")
+            meaningsContainer.removeAttribute("contentEditable")
+            exampleContainer.removeAttribute("contentEditable")
+                  
+    
+              checkbtn.style.display = "none"
+              editbtn.style.display = "inline-block"
+             
+              const word = card.querySelector(".word").innerHTML
+              const tag = card.querySelector(".tag").innerHTML
+              const meanings = card.querySelector(".meanings").innerHTML
+              const example = card.querySelector(".example").innerHTML
+
+            const updateCardRef = database.ref(`words/${btnKey}`)
+
+            //  updateCardRef.child(btnKey).update({
+            //    
+            //  })
+
+              updateCardRef.update({
+                    word : word,
+                    tag : tag,
+                    example : example,
+                    meanings : meanings,
+                    hello : "hello world"
+                 })
+          
+
+             })
+
+   
+
+
+             removebtn.addEventListener("click",function(e){
+                const btnKey = e.target.dataset.action 
+              const deleteCardRef = database.ref(`words/${btnKey}`)
+                      if (confirm("delete card")) {
+                        deleteCardRef.remove().then(()=>{
+                            alert("card deleted")
+                            displayCards()
+                        }).catch((error)=>{
+                          alert("failed to delete card",error.message)
+                        })
+                      } else {
+                        return;
+                      }
+
+
+             })
+
+
+
+
         })
 
+
+
+        })
+
+
+     
+
+
     }
-    displayWords()
+    displayCards()
+
+   
+   
+   
