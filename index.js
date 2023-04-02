@@ -3,6 +3,7 @@ const sections = document.querySelectorAll("section")
 const saveWordsForm = document.querySelector("#saveWords")
 let activeIndex = 0
 
+
 navBtns.forEach((button,index)=>{
     button.addEventListener("click",function(){
     const filter = this.dataset.filter

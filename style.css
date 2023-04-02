@@ -246,6 +246,7 @@ header input.active
     height: auto;
     position: relative;
     padding-top: 10px;
+    display: block;
 }
 
 @media screen and (max-width: 1150px) {
@@ -432,6 +433,132 @@ header input.active
     margin: 0;
     padding: 5px;
 }
+
+
+
+.sticky-notes-container 
+{
+    margin: 10% 15%  0;
+    width: 85%;
+    height: auto;
+    position: relative;
+    padding-top: 10px;
+    display: none;
+   
+}
+
+@media screen and (max-width: 1142px) {
+    .sticky-notes-container 
+    {
+ 
+     width: 90%;
+     margin: 10%  7%  0;
+    }
+
+  } 
+
+  @media screen and (max-width: 900px) {
+    .sticky-notes-container 
+    {
+  
+     width: 100%;
+     margin: 10%  auto 0;
+    }
+
+  } 
+
+
+.sticky-notes 
+{
+   width: 100%;
+   display: flex;
+   justify-content: left;
+   align-items: center;
+   flex-wrap: wrap;
+   gap: 10px;
+ 
+}
+
+
+.sticky-notes .note 
+{
+    width:250px;
+    margin-left: 10px;
+    height: auto;
+    position: relative;
+    transition:  box-shadow .2s ease-in-out;
+}
+
+@media screen and (max-width: 1142px) {
+    .sticky-notes .note 
+    {
+    margin-left: 20px;
+    }
+
+  } 
+
+  @media screen and (max-width: 900px) {
+    .sticky-notes .note  
+    {
+     width: 47%;
+     margin: 0 auto 0;
+     /* margin: 10%  auto 0; */
+    }
+
+  } 
+  @media screen and (max-width: 500px) {
+    .sticky-notes .note  
+    {
+     width: 98%;
+     margin: 0 auto 0;
+     /* margin: 10%  auto 0; */
+    }
+
+  } 
+
+.sticky-notes  .note:hover
+{
+    box-shadow: 0 0 14px  rgba(183,185,192,.1);
+   transition:  box-shadow .2s ease-in-out;
+
+}
+
+.sticky-notes .note textarea
+{
+    outline: none;
+    resize: none;
+    width: 100%;
+    height: 230px;
+    border-radius: 5px;
+    font-size: 1em;
+    padding: 10px;
+    padding-bottom: 30px;
+    text-align: left;
+}
+
+.sticky-notes .note .sticky-button
+{
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    background-color: #333333;
+}
+
+.sticky-notes .note .sticky-button button
+{
+    outline: none;
+    background-color: transparent;
+    border: none;
+    color: rgba(183,185,192,.3);
+    font-size: .8em;
+    margin: 5px;
+    cursor: pointer;
+    background-color:rgba(183,185,192,.1);
+    border-radius: 5px;
+    padding: 5px;
+}
+
+
 .my-form
 {
     position: fixed;
