@@ -126,7 +126,6 @@ header input.active
     top: 7%;
     height: 100vh;
     width: 15%;
-    padding-top: 10px;
     background-color: #292828;
     overflow: hidden;
     z-index: 2;
@@ -135,7 +134,8 @@ header input.active
 
 .menu.active 
 {
-    display: block;
+  display: block;
+  width: 10%;
 }
 
 .menu nav 
