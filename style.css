@@ -308,7 +308,7 @@ header input.active
 
 @media screen and (max-width: 800px) {
     .cards-wrapper .card  {
-        width: 100%;
+        width: 98%;
         margin: 0 auto 0;
      }
   }
