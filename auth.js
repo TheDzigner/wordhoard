@@ -1,15 +1,3 @@
-// For Firebase JS SDK v7.20.0 and later, measurementId is optional
-const firebaseConfig = {
-    apiKey: "AIzaSyDOm8bEwkOsbUcDYsJIplWoYwtPevz2npg",
-    authDomain: "wordhoard-8115c.firebaseapp.com",
-    projectId: "wordhoard-8115c",
-    storageBucket: "wordhoard-8115c.appspot.com",
-    messagingSenderId: "984194436960",
-    appId: "1:984194436960:web:ff96bdbf6c13306d885805",
-    measurementId: "G-C6RPEKSSTC"
-  };
-
-  firebase.initializeApp(firebaseConfig)
 
   var provider = new firebase.auth.GoogleAuthProvider();
   provider.addScope('https://www.googleapis.com/auth/contacts.readonly');

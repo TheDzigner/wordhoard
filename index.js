@@ -1,6 +1,5 @@
 const navBtns = document.querySelectorAll("nav ul li button")
 const sections = document.querySelectorAll("section")
-const saveWordsForm = document.querySelector("#saveWords")
 let activeIndex = 0
 
 
@@ -26,9 +25,3 @@ navBtns.forEach((button,index)=>{
 
 
 
-saveWordsForm.addEventListener("click",function(e){
-const wordInput = document.querySelector('#word')
-const tagInput = document.querySelector('#tag')
-const ExampleInput = document.querySelector('#example')
-const meaningsInput = document.querySelector('#meanings')
-})
