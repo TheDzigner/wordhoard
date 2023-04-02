@@ -1,6 +1,8 @@
 const openSearchBarBtn =  document.querySelector(".open-search-mobile")
 const searchWordsInput = document.querySelector(".search-words-input")
 const openMenuMobile = document.querySelector(".open-menu-mobile")
+const menu = document.querySelector(".menu")
+
 
 openSearchBarBtn.addEventListener("click",function(e){
    
@@ -13,4 +15,8 @@ openSearchBarBtn.addEventListener("click",function(e){
         searchWordsInput.classList.add("active")
         openMenuMobile.classList.add("inactive")
     }
+})
+
+openMenuMobile.addEventListener("click",function(e){
+    menu.classList.toggle("active")
 })

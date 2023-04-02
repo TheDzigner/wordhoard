@@ -129,8 +129,14 @@ header input.active
     padding-top: 10px;
     background-color: #292828;
     overflow: hidden;
+    z-index: 2;
+    padding-top: 30px;
 }
 
+.menu.active 
+{
+    display: block;
+}
 
 .menu nav 
 {
