@@ -14,6 +14,26 @@ const firebaseConfig = {
     const database = firebase.database()
 
 
+    const  date = new Date();
+    const hours = date.getHours() % 12 || 12
+    const minutes = date.getMinutes()
+    const seconds = date.getSeconds()
+    const year = date.getFullYear()
+    const day_number = date.getDate()
+    
+    const month = date.getMonth()
+    
+    const days = 
+    ['Sun','Mon','Tue','Wed','Thu','Fri','Sat']
+    const months = 
+    ['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct', 'Nov','Dec']
+  
+    // Jun 28, 2017 at 1:18
+  
+  const timeStamp = 
+  `${months[month]} ${day_number}, ${year} At ${hours}:${minutes}`
+  console.log(timeStamp)
+
 const saveWordsForm = document.querySelector("#saveWords")
 const cards_wrapper = document.querySelector(".cards-wrapper")
 let showedCards  = ''
@@ -29,7 +49,8 @@ saveWordsForm.addEventListener("submit",function(e){
         word : wordInput,
         tag : tagInput,
         example : ExampleInput,
-        meanings : meaningsInput
+        meanings : meaningsInput,
+        date : timeStamp
     }).then(()=>{
         alert("saved succesfully")
     }).catch((error)=>{
@@ -51,6 +72,7 @@ saveWordsForm.addEventListener("submit",function(e){
             const tag = data.tag
             const example = data.example 
             const meanings = data.meanings
+            const date = data.date
 
            let card = `
            <div class="card">
@@ -77,7 +99,7 @@ saveWordsForm.addEventListener("submit",function(e){
                <button class="remove material-symbols-outlined" data-action="${key}">remove</button>
            </div>
            <div class="date">
-               <span  contentEditable="false">jun 28,2023 at 05:10</span>
+               <span  contentEditable="false">${date}</span>
            </div>
        </div>
            `
