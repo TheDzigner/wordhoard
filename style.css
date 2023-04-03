@@ -306,6 +306,21 @@ header input.active
     border-radius: 10px;
 }
 
+.cards-wrapper .card::-webkit-scrollbar {
+    width: 10px;
+   }
+ 
+.cards-wrapper .card::-webkit-scrollbar-track {
+    background-color: rgba(183,185,190,.2);
+   }
+ 
+.cards-wrapper .card::-webkit-scrollbar-thumb {
+     background-color: rgba(183,185,190,.4);
+   }
+ 
+
+
+
 @media screen and (max-width: 800px) {
     .cards-wrapper .card  {
         width: 98%;
