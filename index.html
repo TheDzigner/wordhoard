@@ -177,11 +177,13 @@
 
 
 
-<section data-filter="new" class="my-form">
+<section data-filter="new" class="my-form-container">
+          <h4>
+        add new word
+          </h4>
     <form action="" id="saveWords">
-        <h4>
-      add new word
-        </h4>
+
+     <div class="words-input">
         <label for="word">
             <span>
             word
@@ -195,22 +197,27 @@
             <input type="text" placeholder="enter tag" id="tag" autocomplete="false"> 
         </label>
 
+     </div>
+
+     <div class="words-detail">
         <label for="example">
             <span>
             example
             </span>
-            <input type="text" placeholder="enter example" id="example" autocomplete="false"> 
+            <textarea type="text" placeholder="enter tag" id="example" placeholder="enter example" required autocomplete="false"> 
+            </textarea>
         </label>
 
         <label for="meanings">
             <span>
               meanings
             </span>
-
             <textarea type="text" placeholder="enter tag" id="meanings" placeholder="enter meanings" required autocomplete="false"> 
             </textarea>
         </label>
-        <button type="submit">save</button>
+     </div>
+
+    <button type="submit">save</button>
     </form>
 </section>
 
