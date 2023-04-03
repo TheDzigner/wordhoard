@@ -281,25 +281,24 @@ header input.active
   
 .cards-wrapper 
 {
-    /* margin:7% auto 0;
-    padding-top: 105px;
-    padding-bottom: 30px; */
     max-width: 100%;
-    /* margin-left: 220px; */
     display: flex;
     justify-content: left;
     align-items: center;
     flex-wrap: wrap;
     gap: 20px;
+    padding-bottom: 30px;
 }
 .cards-wrapper .card 
 {
-    /* width: 285px; */
     width: 30.33%;
     margin-left: 10px;
-    height: auto;
+    height: 200px;
+    max-height: 200px;
+    overflow: hidden;
+    overflow-y: auto;
     display: flex;
-    justify-content: center;
+    justify-content: flex-start;
     flex-direction: column;
     align-items: center;
     background-color: #292828;
@@ -622,6 +621,7 @@ header input.active
     border: 1px solid rgba(183,185,192,.2);
     border-radius: 10px;
     width: 100%;
+    color: #FFFFFF;
 }
 
 .words-detail 
@@ -662,6 +662,7 @@ header input.active
     border-radius: 10px;
     width: 100%;
     resize: none;
+    color: #FFFFFF;
 }
 .my-form-container form button 
 {
